@@ -1,0 +1,108 @@
+# ==============================================================================
+# IoT Data Processing System - Python Dependencies
+# ==============================================================================
+# Maintainer: Gabriel Demetrios Lafis
+# Last Updated: 2025-09-30
+#
+# VERSIONING BEST PRACTICES:
+# - Use '==' for exact versions in production (reproducible builds)
+# - Use '>=' for minimum version requirements in development
+# - Use '<' to exclude known breaking versions
+# - Combine operators for range specifications: '>=1.0.0,<2.0.0'
+#
+# UPDATE STRATEGY:
+# 1. Review dependencies quarterly or when security advisories are published
+# 2. Test updates in isolated environment before production deployment
+# 3. Pin to specific versions after validation
+# 4. Use tools like 'pip list --outdated' to check for updates
+# 5. Consider using dependabot or renovate for automated PR updates
+#
+# SECURITY:
+# - Run 'pip-audit' or 'safety check' regularly to scan for vulnerabilities
+# - Subscribe to security advisories for critical dependencies
+# ==============================================================================
+
+# ------------------------------------------------------------------------------
+# CORE DEPENDENCIES - IoT & MQTT Communication
+# ------------------------------------------------------------------------------
+
+# paho-mqtt: Eclipse Paho MQTT Python client library
+# Used for device communication, telemetry ingestion, and command publishing
+# Version constraint: >=1.6.0 for stability, <3.0.0 to avoid breaking changes
+paho-mqtt>=1.6.0,<3.0.0
+
+# ------------------------------------------------------------------------------
+# DATA PROCESSING & ANALYSIS
+# ------------------------------------------------------------------------------
+
+# pandas: Powerful data manipulation and analysis library
+# Used for time-series processing, data transformations, and analytics
+# Version constraint: >=1.5.0 for modern features, <3.0.0 for API stability
+pandas>=1.5.0,<3.0.0
+
+# numpy: Fundamental package for numerical computing
+# Used for array operations, mathematical computations, and data transformations
+# Version constraint: >=1.23.0 for performance improvements, <2.0.0 for compatibility
+numpy>=1.23.0,<2.0.0
+
+# ------------------------------------------------------------------------------
+# CONFIGURATION MANAGEMENT
+# ------------------------------------------------------------------------------
+
+# PyYAML: YAML parser and emitter for Python
+# Used for loading configuration files (config.yaml)
+# Version constraint: >=6.0 for security fixes, <7.0.0 for stability
+PyYAML>=6.0,<7.0.0
+
+# ------------------------------------------------------------------------------
+# OPTIONAL DEPENDENCIES (uncomment as needed)
+# ------------------------------------------------------------------------------
+
+# Database connectors (uncomment based on your storage backend)
+# psycopg2-binary>=2.9.0,<3.0.0  # PostgreSQL/TimescaleDB
+# influxdb-client>=1.36.0,<2.0.0  # InfluxDB 2.x
+# pymongo>=4.3.0,<5.0.0  # MongoDB
+
+# Web framework for REST API (uncomment if using HTTP endpoints)
+# flask>=2.3.0,<4.0.0  # Lightweight web framework
+# fastapi>=0.100.0,<1.0.0  # High-performance async API framework
+# uvicorn>=0.23.0,<1.0.0  # ASGI server for FastAPI
+
+# Observability & monitoring (uncomment if implementing telemetry)
+# opentelemetry-api>=1.20.0,<2.0.0  # OpenTelemetry API
+# opentelemetry-sdk>=1.20.0,<2.0.0  # OpenTelemetry SDK
+# prometheus-client>=0.17.0,<1.0.0  # Prometheus metrics
+
+# Security & authentication (uncomment as needed)
+# cryptography>=41.0.0,<43.0.0  # Cryptographic primitives
+# pyjwt>=2.8.0,<3.0.0  # JSON Web Token implementation
+
+# Testing & quality assurance (development dependencies)
+# pytest>=7.4.0,<9.0.0  # Testing framework
+# pytest-cov>=4.1.0,<6.0.0  # Coverage plugin for pytest
+# black>=23.0.0,<25.0.0  # Code formatter
+# ruff>=0.0.280,<1.0.0  # Fast Python linter
+# mypy>=1.5.0,<2.0.0  # Static type checker
+
+# ------------------------------------------------------------------------------
+# DEVELOPMENT TOOLS (install separately in dev environment)
+# ------------------------------------------------------------------------------
+# pip install -r requirements-dev.txt  # Create separate file for dev deps
+
+# ==============================================================================
+# INSTALLATION INSTRUCTIONS:
+# ==============================================================================
+# 
+# Production (exact versions):
+#   pip install -r requirements.txt
+#
+# Development (with dev tools):
+#   pip install -r requirements.txt -r requirements-dev.txt
+#
+# Upgrade all packages (use with caution):
+#   pip install --upgrade -r requirements.txt
+#
+# Create lock file for reproducible builds:
+#   pip freeze > requirements.lock
+#
+# ==============================================================================
