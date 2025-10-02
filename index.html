@@ -1,59 +1,226 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>IoT Data Processing System</title>
+    <title>Sistema de Processamento de Dados IoT - Gabriel Demetrios Lafis</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --primary-color: #0056b3;
+            --secondary-color: #004085;
+            --text-color: #333;
+            --bg-color: #f8f9fa;
+            --card-bg: #ffffff;
+            --shadow-light: rgba(0, 0, 0, 0.1);
+        }
+
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Roboto', sans-serif;
             line-height: 1.6;
             margin: 0;
-            padding: 20px;
-            background-color: #f4f4f4;
-            color: #333;
+            padding: 0;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
         }
+
+        .header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 1rem 0;
+            text-align: center;
+            box-shadow: 0 2px 4px var(--shadow-light);
+        }
+
+        .header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+        }
+
         .container {
-            max-width: 800px;
-            margin: auto;
-            background: #fff;
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 0 20px;
+            flex-grow: 1;
+        }
+
+        .hero {
+            background: url('hero_image.png') no-repeat center center/cover;
+            color: white;
+            text-align: center;
+            padding: 100px 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 8px var(--shadow-light);
+        }
+
+        .hero h2 {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 30px auto;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+        }
+
+        .btn {
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 12px 25px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: #002a5c;
+        }
+
+        .section {
+            background: var(--card-bg);
             padding: 30px;
             border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 8px var(--shadow-light);
+            margin-bottom: 30px;
         }
-        h1, h2 {
-            color: #0056b3;
+
+        .section h2 {
+            color: var(--primary-color);
+            margin-top: 0;
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 10px;
+            margin-bottom: 20px;
         }
-        a {
-            color: #0056b3;
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .feature-item {
+            background-color: var(--bg-color);
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 1px 3px var(--shadow-light);
+            text-align: center;
+        }
+
+        .feature-item h3 {
+            color: var(--secondary-color);
+            margin-top: 0;
+        }
+
+        .footer {
+            background-color: var(--primary-color);
+            color: white;
+            text-align: center;
+            padding: 1.5rem 0;
+            margin-top: auto;
+            box-shadow: 0 -2px 4px var(--shadow-light);
+        }
+
+        .footer a {
+            color: white;
             text-decoration: none;
+            margin: 0 10px;
         }
-        a:hover {
+
+        .footer a:hover {
             text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2rem;
+            }
+            .hero h2 {
+                font-size: 2.2rem;
+            }
+            .hero p {
+                font-size: 1rem;
+            }
+            .container {
+                margin: 10px auto;
+                padding: 0 15px;
+            }
+            .section {
+                padding: 20px;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>IoT Data Processing System</h1>
-        <p>Bem-vindo ao repositório do Sistema de Processamento de Dados IoT de Gabriel Demetrios Lafis.</p>
-        <p>Este projeto demonstra uma solução robusta e escalável para análise de dados em tempo real e gerenciamento eficiente de dispositivos IoT.</p>
-        
-        <h2>Visão Geral do Projeto</h2>
-        <p>Explore o código-fonte, a documentação e os exemplos para entender como este sistema processa e analisa dados de dispositivos IoT.</p>
-        
-        <h2>Recursos</h2>
-        <ul>
-            <li>Processamento de dados em tempo real</li>
-            <li>Análise avançada com Machine Learning</li>
-            <li>Gerenciamento de dispositivos IoT</li>
-            <li>Arquitetura de código profissional</li>
-            <li>Documentação bilíngue (Português/Inglês)</li>
-        </ul>
+    <header class="header">
+        <h1>Sistema de Processamento de Dados IoT</h1>
+    </header>
 
-        <p>Para mais detalhes, visite o <a href="https://github.com/galafis/IoT-Data-Processing-System">repositório GitHub</a>.</p>
-        
-        <p>Desenvolvido por Gabriel Demetrios Lafis.</p>
-    </div>
+    <main class="container">
+        <section class="hero">
+            <h2>Soluções Inteligentes para o Mundo Conectado</h2>
+            <p>Este projeto demonstra uma solução robusta e escalável para análise de dados em tempo real e gerenciamento eficiente de dispositivos IoT, desenvolvido por Gabriel Demetrios Lafis.</p>
+            <a href="https://github.com/galafis/IoT-Data-Processing-System" class="btn">Ver Repositório no GitHub</a>
+        </section>
+
+        <section class="section">
+            <h2>Visão Geral do Projeto</h2>
+            <p>Explore o código-fonte, a documentação e os exemplos para entender como este sistema processa e analisa dados de dispositivos IoT. Nosso objetivo é fornecer uma plataforma completa para desenvolvedores e cientistas de dados que trabalham com Internet das Coisas.</p>
+            <p>A arquitetura é projetada para ser modular e extensível, permitindo fácil integração com diferentes tipos de sensores e plataformas de nuvem.</p>
+        </section>
+
+        <section class="section">
+            <h2>Recursos Principais</h2>
+            <div class="features-grid">
+                <div class="feature-item">
+                    <h3>Processamento em Tempo Real</h3>
+                    <p>Análise e ingestão de dados de IoT em tempo real para insights imediatos.</p>
+                </div>
+                <div class="feature-item">
+                    <h3>Machine Learning Avançado</h3>
+                    <p>Modelos de ML integrados para detecção de anomalias e previsão de tendências.</p>
+                </div>
+                <div class="feature-item">
+                    <h3>Gerenciamento de Dispositivos</h3>
+                    <p>Ferramentas eficientes para monitorar e controlar sua frota de dispositivos IoT.</p>
+                </div>
+                <div class="feature-item">
+                    <h3>Arquitetura Escalável</h3>
+                    <p>Design robusto que suporta um grande volume de dados e dispositivos.</p>
+                </div>
+                <div class="feature-item">
+                    <h3>Documentação Completa</h3>
+                    <p>Documentação bilíngue (Português/Inglês) para facilitar a compreensão e uso.</p>
+                </div>
+                <div class="feature-item">
+                    <h3>Código Profissional</h3>
+                    <p>Estrutura de código limpa, testável e de alta qualidade.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Documentação</h2>
+            <p>Acesse a documentação completa do projeto para detalhes sobre a arquitetura, instalação, uso e contribuição.</p>
+            <a href="./docs/" class="btn">Acessar Documentação</a>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2025 Gabriel Demetrios Lafis. Todos os direitos reservados.</p>
+        <p>
+            <a href="https://github.com/galafis/IoT-Data-Processing-System">Repositório GitHub</a> |
+            <a href="https://www.linkedin.com/in/gabriel-demetrios-lafis/">LinkedIn</a>
+        </p>
+    </footer>
 </body>
 </html>
+

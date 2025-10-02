@@ -291,3 +291,4 @@ Idempotency: use `eventId` or `(deviceId, ts)` composite key.
 ---
 
 Maintainer: Gabriel Demetrios Lafis
+
