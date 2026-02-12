@@ -1,139 +1,209 @@
-# IoT-Data-Processing-System
+# 📊 Iot Data Processing System
 
-![Hero Image](hero_image.png)
+[![Python](https://img.shields.io/badge/Python-3.12-blue.svg)](https://www.python.org/)
+[![FastAPI](https://img.shields.io/badge/FastAPI-0.115-009688.svg)](https://fastapi.tiangolo.com/)
+[![Flask](https://img.shields.io/badge/Flask-3.0-000000.svg)](https://flask.palletsprojects.com/)
+[![PostgreSQL](https://img.shields.io/badge/PostgreSQL-15-336791.svg)](https://www.postgresql.org/)
+[![Prometheus](https://img.shields.io/badge/Prometheus-2.48-E6522C.svg)](https://prometheus.io/)
+[![License](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
+[English](#english) | [Português](#português)
+
+---
 
 ## English
 
-### 🚀 Overview
-IoT data processing system with real-time analytics and device management
+### 🎯 Overview
 
-This project demonstrates professional Python development skills with modern best practices, clean code architecture, and industry-standard implementations.
+**Iot Data Processing System** — Professional repository showcasing advanced development skills
 
-### 🛠️ Technology Stack
-Python, IoT protocols, MQTT, data processing, real-time analytics
+Total source lines: **668** across **9** files in **1** language.
 
-### ⚡ Features
-- Professional code architecture
-- Modern development practices
-- Comprehensive error handling
-- Performance optimized
-- Well-documented codebase
-- Industry-standard patterns
+### ✨ Key Features
 
-### 🏃‍♂️ Quick Start
+- **Production-Ready Architecture**: Modular, well-documented, and following best practices
+- **Comprehensive Implementation**: Complete solution with all core functionality
+- **Clean Code**: Type-safe, well-tested, and maintainable codebase
+- **Easy Deployment**: Docker support for quick setup and deployment
 
+### 🚀 Quick Start
+
+#### Prerequisites
+- Python 3.12+
+
+
+#### Installation
+
+1. **Clone the repository**
 ```bash
-# Clone the repository
 git clone https://github.com/galafis/IoT-Data-Processing-System.git
-
-# Navigate to project directory
 cd IoT-Data-Processing-System
-
-# Follow language-specific setup instructions below
 ```
 
-### 📦 Installation & Setup
+2. **Create virtual environment**
+```bash
+python -m venv venv
+source venv/bin/activate  # On Windows: venv\Scripts\activate
+```
+
+3. **Install dependencies**
+```bash
+pip install -r requirements.txt
+```
+
+#### Running
 
 ```bash
-# Install dependencies
-pip install -r requirements.txt
-
-# Run the application
 python main.py
 ```
 
-### 🎯 Use Cases
-- Professional development portfolio
-- Learning modern Python practices
-- Code reference and examples
-- Enterprise-grade implementations
 
-### 📊 Project Structure
+### 🧪 Testing
+
+```bash
+# Run all tests
+pytest
+
+# Run with coverage
+pytest --cov --cov-report=html
+
+# Run with verbose output
+pytest -v
+```
+
+### 📁 Project Structure
+
 ```
 IoT-Data-Processing-System/
-├── README.md
-├── LICENSE
-├── main.py
-├── requirements.txt
 ├── src/
+│   ├── README.md
+│   ├── __init__.py
+│   ├── analytics.py
+│   ├── device.py
+│   ├── mqtt_handler.py
+│   └── utils.py
 ├── tests/
-└── docs/
+│   ├── __init__.py
+│   ├── test_analytics.py
+│   └── test_main.py
+├── CONTRIBUTING.md
+├── README.md
+├── main.py
+└── requirements.txt
 ```
 
-### 🤝 Contributing
-Contributions are welcome! Please feel free to submit a Pull Request.
+### 🛠️ Tech Stack
+
+| Technology | Usage |
+|------------|-------|
+| Python | 9 files |
 
 ### 📄 License
-This project is licensed under the MIT License - see the LICENSE file for details.
 
-### 👨‍💻 Author
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+### 👤 Author
+
 **Gabriel Demetrios Lafis**
-- Data Scientist & Engineer
-- Systems Developer & Analyst
-- Cybersecurity Specialist
+
+- GitHub: [@galafis](https://github.com/galafis)
+- LinkedIn: [Gabriel Demetrios Lafis](https://linkedin.com/in/gabriel-demetrios-lafis)
 
 ---
 
 ## Português
 
-### 🚀 Visão Geral
-IoT data processing system with real-time analytics and device management
+### 🎯 Visão Geral
 
-Este projeto demonstra habilidades profissionais de desenvolvimento em Python com práticas modernas, arquitetura de código limpo e implementações padrão da indústria.
+**Iot Data Processing System** — Professional repository showcasing advanced development skills
 
-### 🛠️ Stack Tecnológica
-Python, IoT protocols, MQTT, data processing, real-time analytics
+Total de linhas de código: **668** em **9** arquivos em **1** linguagem.
 
-### ⚡ Funcionalidades
-- Arquitetura de código profissional
-- Práticas modernas de desenvolvimento
-- Tratamento abrangente de erros
-- Otimizado para performance
-- Base de código bem documentada
-- Padrões da indústria
+### ✨ Funcionalidades Principais
 
-### 🏃‍♂️ Início Rápido
+- **Arquitetura Pronta para Produção**: Modular, bem documentada e seguindo boas práticas
+- **Implementação Completa**: Solução completa com todas as funcionalidades principais
+- **Código Limpo**: Type-safe, bem testado e manutenível
+- **Fácil Implantação**: Suporte Docker para configuração e implantação rápidas
 
+### 🚀 Início Rápido
+
+#### Pré-requisitos
+- Python 3.12+
+
+
+#### Instalação
+
+1. **Clone the repository**
 ```bash
-# Clone o repositório
 git clone https://github.com/galafis/IoT-Data-Processing-System.git
-
-# Navegue para o diretório do projeto
 cd IoT-Data-Processing-System
-
-# Siga as instruções de configuração específicas da linguagem abaixo
 ```
 
-### 📦 Instalação e Configuração
+2. **Create virtual environment**
+```bash
+python -m venv venv
+source venv/bin/activate  # On Windows: venv\Scripts\activate
+```
+
+3. **Install dependencies**
+```bash
+pip install -r requirements.txt
+```
+
+#### Execução
 
 ```bash
-# Instale as dependências
-pip install -r requirements.txt
-
-# Execute a aplicação
 python main.py
 ```
 
-### 🎯 Casos de Uso
-- Portfólio de desenvolvimento profissional
-- Aprendizado de práticas modernas em Python
-- Referência de código e exemplos
-- Implementações de nível empresarial
+### 🧪 Testes
 
-### 🤝 Contribuindo
-Contribuições são bem-vindas! Sinta-se à vontade para enviar um Pull Request.
+```bash
+# Run all tests
+pytest
+
+# Run with coverage
+pytest --cov --cov-report=html
+
+# Run with verbose output
+pytest -v
+```
+
+### 📁 Estrutura do Projeto
+
+```
+IoT-Data-Processing-System/
+├── src/
+│   ├── README.md
+│   ├── __init__.py
+│   ├── analytics.py
+│   ├── device.py
+│   ├── mqtt_handler.py
+│   └── utils.py
+├── tests/
+│   ├── __init__.py
+│   ├── test_analytics.py
+│   └── test_main.py
+├── CONTRIBUTING.md
+├── README.md
+├── main.py
+└── requirements.txt
+```
+
+### 🛠️ Stack Tecnológica
+
+| Tecnologia | Uso |
+|------------|-----|
+| Python | 9 files |
 
 ### 📄 Licença
-Este projeto está licenciado sob a Licença MIT - veja o arquivo LICENSE para detalhes.
 
-### 👨‍💻 Autor
+Este projeto está licenciado sob a Licença MIT - veja o arquivo [LICENSE](LICENSE) para detalhes.
+
+### 👤 Autor
+
 **Gabriel Demetrios Lafis**
-- Cientista e Engenheiro de Dados
-- Desenvolvedor e Analista de Sistemas
-- Especialista em Segurança Cibernética
 
----
-
-⭐ **Se este projeto foi útil para você, considere dar uma estrela!**
-
+- GitHub: [@galafis](https://github.com/galafis)
+- LinkedIn: [Gabriel Demetrios Lafis](https://linkedin.com/in/gabriel-demetrios-lafis)
