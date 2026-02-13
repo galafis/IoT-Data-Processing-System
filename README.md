@@ -1,333 +1,172 @@
-# 📊 Iot Data Processing System
+# IoT Data Processing System
 
-> Professional repository showcasing advanced development skills
-
-[![Python](https://img.shields.io/badge/Python-3.12-3776AB.svg)](https://img.shields.io/badge/)
-[![Docker](https://img.shields.io/badge/Docker-Ready-2496ED.svg)](https://img.shields.io/badge/)
-[![FastAPI](https://img.shields.io/badge/FastAPI-0.115-009688.svg)](https://img.shields.io/badge/)
-[![Flask](https://img.shields.io/badge/Flask-3.0-000000.svg)](https://img.shields.io/badge/)
-[![Gin](https://img.shields.io/badge/Gin-1.9-00ADD8.svg)](https://img.shields.io/badge/)
-[![JWT](https://img.shields.io/badge/JWT-Auth-000000.svg)](https://img.shields.io/badge/)
-[![NumPy](https://img.shields.io/badge/NumPy-1.26-013243.svg)](https://img.shields.io/badge/)
-[![Pandas](https://img.shields.io/badge/Pandas-2.2-150458.svg)](https://img.shields.io/badge/)
-[![PostgreSQL](https://img.shields.io/badge/PostgreSQL-15-336791.svg)](https://img.shields.io/badge/)
-[![Prometheus](https://img.shields.io/badge/Prometheus-2.48-E6522C.svg)](https://img.shields.io/badge/)
+[![Python](https://img.shields.io/badge/Python-3.10+-3776AB.svg)](https://www.python.org/)
+[![scikit-learn](https://img.shields.io/badge/scikit--learn-1.2+-F7931E.svg)](https://scikit-learn.org/)
+[![paho-mqtt](https://img.shields.io/badge/paho--mqtt-1.x-3C5280.svg)](https://eclipse.dev/paho/)
 [![License](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
-[English](#english) | [Português](#português)
+[Portugues](#portugues) | [English](#english)
+
+---
+
+## Portugues
+
+### Visao Geral
+
+Demo em Python para processamento de dados IoT. Inclui gerenciamento de dispositivos, cliente MQTT para comunicacao com broker, e um pipeline de analytics com RandomForest para classificacao de dados de sensores.
+
+### Arquitetura
+
+```mermaid
+graph LR
+    subgraph src
+        D[device.py<br>DeviceManager] --> M[mqtt_handler.py<br>MQTTClient]
+        A[analytics.py<br>DataAnalyzer]
+        U[utils.py<br>Config / Logging]
+    end
+    E[main.py] --> D
+    E --> A
+    E --> U
+    A -->|gera dados| RF[RandomForest<br>Classifier]
+    RF -->|visualiza| PNG[analysis.png]
+```
+
+### Modulos
+
+| Modulo | Descricao |
+|--------|-----------|
+| `src/device.py` | Classes `Device` e `DeviceManager` para registro e controle de status de dispositivos IoT |
+| `src/mqtt_handler.py` | Wrapper do cliente MQTT (paho-mqtt) para comunicacao com broker |
+| `src/analytics.py` | `DataAnalyzer` — gera dados de sensores sinteticos, treina RandomForest, gera visualizacoes |
+| `src/utils.py` | Carregamento de config YAML e configuracao de logging |
+| `main.py` | Ponto de entrada — integra todos os modulos acima |
+
+### Inicio Rapido
+
+```bash
+git clone https://github.com/galafis/IoT-Data-Processing-System.git
+cd IoT-Data-Processing-System
+
+python -m venv venv
+source venv/bin/activate  # Windows: venv\Scripts\activate
+
+pip install -r requirements.txt
+python main.py
+```
+
+### Testes
+
+```bash
+pytest tests/ -v
+```
+
+### Estrutura do Projeto
+
+```
+IoT-Data-Processing-System/
+├── src/
+│   ├── __init__.py
+│   ├── analytics.py
+│   ├── device.py
+│   ├── mqtt_handler.py
+│   └── utils.py
+├── tests/
+│   ├── __init__.py
+│   └── test_analytics.py
+├── main.py
+├── requirements.txt
+├── LICENSE
+└── README.md
+```
+
+### Autor
+
+**Gabriel Demetrios Lafis**
+- GitHub: [@galafis](https://github.com/galafis)
+- LinkedIn: [Gabriel Demetrios Lafis](https://linkedin.com/in/gabriel-demetrios-lafis)
+
+### Licenca
+
+MIT — veja [LICENSE](LICENSE).
 
 ---
 
 ## English
 
-### 🎯 Overview
+### Overview
 
-**Iot Data Processing System** is a production-grade Python application that showcases modern software engineering practices including clean architecture, comprehensive testing, containerized deployment, and CI/CD readiness.
+Python demo for IoT data processing. Includes device management, an MQTT client wrapper for broker communication, and an analytics pipeline with RandomForest for sensor data classification.
 
-The codebase comprises **668 lines** of source code organized across **9 modules**, following industry best practices for maintainability, scalability, and code quality.
-
-### ✨ Key Features
-
-- **🔄 Data Pipeline**: Scalable ETL with parallel processing
-- **✅ Data Validation**: Schema validation and quality checks
-- **📊 Monitoring**: Pipeline health metrics and alerting
-- **🔧 Configurability**: YAML/JSON-based pipeline configuration
-- **⚡ Async API**: High-performance async REST API with FastAPI
-- **📖 Auto-Documentation**: Interactive Swagger UI and ReDoc
-- **✅ Validation**: Pydantic-powered request/response validation
-- **🐳 Containerized**: Docker support for consistent deployment
-
-### 🏗️ Architecture
+### Architecture
 
 ```mermaid
-graph TB
-    subgraph Client["🖥️ Client Layer"]
-        A[Web Client]
-        B[API Documentation]
+graph LR
+    subgraph src
+        D[device.py<br>DeviceManager] --> M[mqtt_handler.py<br>MQTTClient]
+        A[analytics.py<br>DataAnalyzer]
+        U[utils.py<br>Config / Logging]
     end
-    
-    subgraph API["⚡ API Layer"]
-        C[Middleware Pipeline]
-        D[Route Handlers]
-        E[Business Logic]
-    end
-    
-    subgraph Data["💾 Data Layer"]
-        F[(Primary Database)]
-        G[Cache]
-    end
-    
-    A --> C
-    B --> C
-    C --> D --> E
-    E --> F
-    E --> G
-    
-    style Client fill:#e1f5fe
-    style API fill:#f3e5f5
-    style Data fill:#fff3e0
+    E[main.py] --> D
+    E --> A
+    E --> U
+    A -->|generates data| RF[RandomForest<br>Classifier]
+    RF -->|visualizes| PNG[analysis.png]
 ```
 
-```mermaid
-classDiagram
-    class MQTTClient
-    class DataAnalyzer
-    class Device
-    class DeviceManager
-    class IoTProcessingAnalyzer
-    DeviceManager --> MQTTClient : uses
-    DeviceManager --> DataAnalyzer : uses
-    DeviceManager --> Device : uses
-```
+### Modules
 
-### 🚀 Quick Start
+| Module | Description |
+|--------|-------------|
+| `src/device.py` | `Device` and `DeviceManager` classes for IoT device registration and status tracking |
+| `src/mqtt_handler.py` | MQTT client wrapper (paho-mqtt) for broker communication |
+| `src/analytics.py` | `DataAnalyzer` — generates synthetic sensor data, trains a RandomForest classifier, produces visualizations |
+| `src/utils.py` | YAML config loading and logging setup |
+| `main.py` | Entry point — integrates all modules above |
 
-#### Prerequisites
-
-- Python 3.12+
-- pip (Python package manager)
-
-#### Installation
+### Quick Start
 
 ```bash
-# Clone the repository
 git clone https://github.com/galafis/IoT-Data-Processing-System.git
 cd IoT-Data-Processing-System
 
-# Create and activate virtual environment
 python -m venv venv
-source venv/bin/activate  # On Windows: venv\Scripts\activate
+source venv/bin/activate  # Windows: venv\Scripts\activate
 
-# Install dependencies
 pip install -r requirements.txt
-```
-
-#### Running
-
-```bash
-# Run the application
 python main.py
 ```
 
-### 🧪 Testing
+### Tests
 
 ```bash
-# Run all tests
-pytest
-
-# Run with coverage report
-pytest --cov --cov-report=html
-
-# Run specific test module
-pytest tests/test_main.py -v
-
-# Run with detailed output
-pytest -v --tb=short
+pytest tests/ -v
 ```
 
-### 📁 Project Structure
+### Project Structure
 
 ```
 IoT-Data-Processing-System/
-├── src/          # Source code
-│   ├── README.md
+├── src/
 │   ├── __init__.py
 │   ├── analytics.py
 │   ├── device.py
 │   ├── mqtt_handler.py
 │   └── utils.py
-├── tests/         # Test suite
+├── tests/
 │   ├── __init__.py
-│   ├── test_analytics.py
-│   └── test_main.py
-├── CONTRIBUTING.md
-├── Dockerfile
-├── LICENSE
-├── README.md
+│   └── test_analytics.py
 ├── main.py
-└── requirements.txt
+├── requirements.txt
+├── LICENSE
+└── README.md
 ```
 
-### 🛠️ Tech Stack
-
-| Technology | Description | Role |
-|------------|-------------|------|
-| **Python** | Core Language | Primary |
-| **Docker** | Containerization platform | Framework |
-| **FastAPI** | High-performance async web framework | Framework |
-| **Flask** | Lightweight web framework | Framework |
-| **Gin** | Go web framework | Framework |
-| **JWT** | Token-based authentication | Framework |
-| **NumPy** | Numerical computing | Framework |
-| **Pandas** | Data manipulation library | Framework |
-| **PostgreSQL** | Relational database | Framework |
-| **Prometheus** | Monitoring & alerting | Framework |
-
-### 🤝 Contributing
-
-Contributions are welcome! Please feel free to submit a Pull Request. For major changes, please open an issue first to discuss what you would like to change.
-
-1. Fork the project
-2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
-
-### 📄 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-### 👤 Author
+### Author
 
 **Gabriel Demetrios Lafis**
 - GitHub: [@galafis](https://github.com/galafis)
 - LinkedIn: [Gabriel Demetrios Lafis](https://linkedin.com/in/gabriel-demetrios-lafis)
 
----
+### License
 
-## Português
-
-### 🎯 Visão Geral
-
-**Iot Data Processing System** é uma aplicação Python de nível profissional que demonstra práticas modernas de engenharia de software, incluindo arquitetura limpa, testes abrangentes, implantação containerizada e prontidão para CI/CD.
-
-A base de código compreende **668 linhas** de código-fonte organizadas em **9 módulos**, seguindo as melhores práticas do setor para manutenibilidade, escalabilidade e qualidade de código.
-
-### ✨ Funcionalidades Principais
-
-- **🔄 Data Pipeline**: Scalable ETL with parallel processing
-- **✅ Data Validation**: Schema validation and quality checks
-- **📊 Monitoring**: Pipeline health metrics and alerting
-- **🔧 Configurability**: YAML/JSON-based pipeline configuration
-- **⚡ Async API**: High-performance async REST API with FastAPI
-- **📖 Auto-Documentation**: Interactive Swagger UI and ReDoc
-- **✅ Validation**: Pydantic-powered request/response validation
-- **🐳 Containerized**: Docker support for consistent deployment
-
-### 🏗️ Arquitetura
-
-```mermaid
-graph TB
-    subgraph Client["🖥️ Client Layer"]
-        A[Web Client]
-        B[API Documentation]
-    end
-    
-    subgraph API["⚡ API Layer"]
-        C[Middleware Pipeline]
-        D[Route Handlers]
-        E[Business Logic]
-    end
-    
-    subgraph Data["💾 Data Layer"]
-        F[(Primary Database)]
-        G[Cache]
-    end
-    
-    A --> C
-    B --> C
-    C --> D --> E
-    E --> F
-    E --> G
-    
-    style Client fill:#e1f5fe
-    style API fill:#f3e5f5
-    style Data fill:#fff3e0
-```
-
-### 🚀 Início Rápido
-
-#### Prerequisites
-
-- Python 3.12+
-- pip (Python package manager)
-
-#### Installation
-
-```bash
-# Clone the repository
-git clone https://github.com/galafis/IoT-Data-Processing-System.git
-cd IoT-Data-Processing-System
-
-# Create and activate virtual environment
-python -m venv venv
-source venv/bin/activate  # On Windows: venv\Scripts\activate
-
-# Install dependencies
-pip install -r requirements.txt
-```
-
-#### Running
-
-```bash
-# Run the application
-python main.py
-```
-
-### 🧪 Testing
-
-```bash
-# Run all tests
-pytest
-
-# Run with coverage report
-pytest --cov --cov-report=html
-
-# Run specific test module
-pytest tests/test_main.py -v
-
-# Run with detailed output
-pytest -v --tb=short
-```
-
-### 📁 Estrutura do Projeto
-
-```
-IoT-Data-Processing-System/
-├── src/          # Source code
-│   ├── README.md
-│   ├── __init__.py
-│   ├── analytics.py
-│   ├── device.py
-│   ├── mqtt_handler.py
-│   └── utils.py
-├── tests/         # Test suite
-│   ├── __init__.py
-│   ├── test_analytics.py
-│   └── test_main.py
-├── CONTRIBUTING.md
-├── Dockerfile
-├── LICENSE
-├── README.md
-├── main.py
-└── requirements.txt
-```
-
-### 🛠️ Stack Tecnológica
-
-| Tecnologia | Descrição | Papel |
-|------------|-----------|-------|
-| **Python** | Core Language | Primary |
-| **Docker** | Containerization platform | Framework |
-| **FastAPI** | High-performance async web framework | Framework |
-| **Flask** | Lightweight web framework | Framework |
-| **Gin** | Go web framework | Framework |
-| **JWT** | Token-based authentication | Framework |
-| **NumPy** | Numerical computing | Framework |
-| **Pandas** | Data manipulation library | Framework |
-| **PostgreSQL** | Relational database | Framework |
-| **Prometheus** | Monitoring & alerting | Framework |
-
-### 🤝 Contribuindo
-
-Contribuições são bem-vindas! Sinta-se à vontade para enviar um Pull Request.
-
-### 📄 Licença
-
-Este projeto está licenciado sob a Licença MIT - veja o arquivo [LICENSE](LICENSE) para detalhes.
-
-### 👤 Autor
-
-**Gabriel Demetrios Lafis**
-- GitHub: [@galafis](https://github.com/galafis)
-- LinkedIn: [Gabriel Demetrios Lafis](https://linkedin.com/in/gabriel-demetrios-lafis)
+MIT — see [LICENSE](LICENSE).
